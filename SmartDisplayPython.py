@@ -17,7 +17,7 @@ def read_dht(pin):
  
 #fonction de lecture du CAN (ADC en anglais), avec comme variable "channel" la broche du CAN a lire (donc la broche sur lequel le capteur est branché)
 def read_adc(channel, vref=3.3):
-    adc = spi.xfer2([1, (8 + channel) << 4, 0]) #lecture de la valeur renvoyé par le CAN (formules chatgtp)
+    adc = spi.xfer2([1, (8 + channel) << 4, 0]) #lecture de la valeur renvoyé par le CAN
     data = ((adc[1] & 3) << 8) + adc[2]      
     tension = data * vref / 1023.0 #calculs de conversions de la valeur renvoyé par le CAN en tension puis en décibels (les formules ont été trouvé sur la datasheet du capteur)
     decibels = tension * 50    
