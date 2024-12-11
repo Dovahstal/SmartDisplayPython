@@ -5,7 +5,7 @@ import time
 import struct
 import serial
  
-spi = spidev.SpiDev() #configuration du SPI (chatgtp)
+spi = spidev.SpiDev() #configuration du SPI
 spi.open(0, 0)
 spi.max_speed_hz = 1350000
 ser = serial.Serial('/dev/ttyUSB0', baudrate=9600, timeout=2) #configuration du port serial a lire
